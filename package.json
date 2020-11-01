@@ -9,9 +9,10 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "lint": "npm run lint:js && npm run lint:md",
+    "lint": "npm run lint:js",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint:md": "remark .",
+    "changelog": "gren changelog --overwrite",
     "blog": "node bin/blog"
   },
   "dependencies": {
@@ -20,9 +21,12 @@
     "@nuxtjs/feed": "^1.1.0",
     "@vonagevolta/volta2": "0.0.56",
     "algoliasearch": "^4.5.1",
+    "ap-style-title-case": "^1.1.2",
     "defu": "^3.1.0",
     "dotenv": "^8.2.0",
     "front-matter": "^4.0.2",
+    "globby": "^11.0.1",
+    "image-downloader": "^4.0.1",
     "instantsearch.css": "^7.4.5",
     "jsonwebtoken": "^8.5.1",
     "netlify-plugin-algolia-export": "^1.0.2",
@@ -31,6 +35,7 @@
     "nuxt-i18n": "^6.15.4",
     "reading-time": "^1.2.0",
     "showdown": "^1.9.1",
+    "slugify": "^1.4.5",
     "vue-disqus": "^3.0.5",
     "vue-fragment": "^1.5.1",
     "vue-instantsearch": "^3.4.2",
@@ -57,7 +62,6 @@
     "remark-cli": "^9.0.0",
     "remark-frontmatter": "^3.0.0",
     "remark-preset-lint-recommended": "^5.0.0",
-    "slugify": "^1.4.5",
     "wpapi": "^1.2.1",
     "yaml": "^1.10.0"
   }

@@ -3,10 +3,10 @@ title: Record a Call in Ruby with Vonage Voice API WebSockets
 description: Learn how to build a small webserver to work with WebSockets in
   Ruby. The server will handle incoming voice calls, WebSocket connections, and
   render HTML
-thumbnail: https://www.nexmo.com/wp-content/uploads/2020/08/Blog_Ruby_Record-Voice-Call_1200x600.png
+thumbnail: /content/blog/record-a-call-in-ruby-with-vonage-voice-api-websockets/Blog_Ruby_Record-Voice-Call_1200x600.png
 author: ben-greenberg
 published: true
-published_at: 2020-08-04T13:25:34
+published_at: 2020-08-04T13:25:34.000Z
 canonical: ""
 comments: true
 updated_at: 2020-10-30T15:22:43.352Z
@@ -17,6 +17,7 @@ tags:
   - websockets
 redirect: ""
 ---
+
 The [Vonage Voice API WebSockets](https://developer.nexmo.com/voice/voice-api/guides/websockets) feature recently left Beta status and became generally available. WebSockets allows you to create two-way communication over a single persistent TCP connection. You do not need to handle multiple HTTP requests and responses with WebSockets. A single WebSocket connection can enable text and binary data communication continuously, with only a single connection opened.
 
 While WebSockets can simplify the HTTP response and request cycle, it is a different paradigm to build an application with. Thankfully, most commonly used programming languages have WebSocket tooling that can help take some complexity out of the process.
