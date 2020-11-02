@@ -1,11 +1,11 @@
 <template>
     <div>
-        <h2>Course</h2>
-        <pre>{{course}}</pre>
+        <h2>Class</h2>
+        <pre>{{singleClass}}</pre>
         <h2>Classes</h2>
         <ul>
-          <li v-for="c in classes" :key="c.slug">
-            <pre>{{c}}</pre>
+          <li v-for="chapter in chapters" :key="chapter.slug">
+            <pre>{{chapter}}</pre>
           </li>
         </ul>
     </div>
@@ -15,16 +15,17 @@
 export default {
   async asyncData({ $content, params, error }) {
     try {
-      const course = await $content(`courses/${params.course}`)
+      const singleClass = await $content(`courses/classes/${params.class}`)
         .fetch()
         .catch(err => error({ statusCode: 404, message: 'Page not found', err }))
+        console.log(singleClass)
 
-      const classes = await $content(`courses/classes`)
-        .where({ course: { $eq: params.course } })
+      const chapters = await $content(`courses/classes/chapters`)
+        .where({ class: { $eq: params.class } })
         .sortBy('order', 'asc')
         .fetch()
 
-      return { course, classes }
+      return { singleClass, chapters }
     } catch (e) {
       error(e)
       return false
