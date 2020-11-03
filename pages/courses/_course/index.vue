@@ -1,14 +1,22 @@
 <template>
-    <div>
-        <h2>Course</h2>
-        <pre>{{course}}</pre>
-        <h2>Classes</h2>
-        <ul>
-          <li v-for="c in classes" :key="c.slug">
-            <pre>{{c}}</pre>
-          </li>
-        </ul>
+  <div>
+    <img class='header' :src='course.header' :alt='course.title'>
+    <div class='Vlt-container'>
+      <div class="Vlt-card__header Vlt-margin--A-top3 Vlt-center">
+        <h1 property="headline">
+          {{ course.title }}
+        </h1>
+        <BackToTop />
+      </div>
     </div>
+    <!-- <pre>{{course}}</pre> -->
+    <!-- <h2>Classes</h2>
+    <ul>
+      <li v-for="c in classes" :key="c.slug">
+        <pre>{{c}}</pre>
+      </li>
+    </ul> -->
+  </div>
 </template>
 
 <script>
@@ -35,4 +43,8 @@ export default {
 
 <style>
 
+img.header {
+  width: 100%;
+  margin-top: -1em;
+}
 </style>
