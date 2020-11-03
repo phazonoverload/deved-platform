@@ -1,5 +1,26 @@
 # Changelog
 
+## v1.0.6 - Fix config and hotfixes (02/11/2020)
+### Fixes
+
+- Fix title centering issue on featured cards (#221)
+- Min 1 Max 3 tags in Netlify CMS config (5e122ef)
+- Consolidate vonage-voyagers into voyagers tag (ee484f4)
+---
+
+## v1.0.5 - Fixes deploy-preview thumbnails on a post (02/11/2020)
+### Fixes
+
+- Deploy previews on a post preview page linked to localhost rather than the build URL.
+---
+
+## v1.0.4 - Netlify CMS config fixes (02/11/2020)
+### Fixes
+
+- Remove `required` from Featured Image
+- Add in Comments `boolean` switch
+---
+
 ## v1.0.3 - OG Data, tag fixes, external link icons (01/11/2020)
 ### Fixes
 
