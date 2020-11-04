@@ -51,4 +51,13 @@ img {
 ul {
   margin-bottom: 1em;
 }
+@media only screen and (max-width: 515px) {
+  .Module {
+    grid-template-columns: 1fr;
+    gap: 1em;
+  }
+  img {
+    width: 100px;
+  }
+}
 </style>
