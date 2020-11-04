@@ -65,14 +65,9 @@ export default {
         .sortBy('order', 'asc')
         .fetch()
 
-
-
       const runTime = courseLength(chapters.map(c => c.length))
-      console.log(runTime)
       return { course, classes, chapters, runTime }
-
     } catch (e) {
-      console.log(e)
       error(e)
       return false
     }

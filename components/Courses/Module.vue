@@ -18,7 +18,7 @@
             <span class="Vlt-list-item__text">{{lo}}</span>
           </li>
       </ul>
-      <a class="Vlt-btn Vlt-btn--primary" :href="module.path">Go to class</a>
+      <a class="Vlt-btn Vlt-btn--primary" :href="`/courses/${module.course}/${module.slug}`">Go to class</a>
     </div>
   </div>
 </template>
