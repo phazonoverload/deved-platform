@@ -17,7 +17,7 @@
           >
             <p class="summary"><b>{{singleClass.description}}</b></p>
             <Video :id="singleClass.youtube" />
-            <small>{{chapters.length}} Chapters &bull; {{runTime}} Runtime</small>
+            <small>{{chapters.length}} Chapters &bull; {{runTime}} Minutes Total</small>
             <Listing :links="chapters" />
           </div>
         </div>
@@ -46,38 +46,34 @@ export default {
         .fetch()
         .catch(err => error({ statusCode: 404, message: 'Page not found', err }))
 
-      const chapters = await $content(`courses/classes/chapters`)
+      let chapters = await $content(`courses/classes/chapters`)
         .where({ class: { $eq: params.class } })
         .sortBy('order', 'asc')
         .fetch()
 
-      const runTime = courseLength(chapters.map(c => c.length))
+      chapters = chapters.map(c => {
+        return {
+          ...c,
+          url: `/courses/${course.slug}/${singleClass.slug}/${c.slug}`,
+          mins: Math.round(c.length/60),
+          text: {
+            main: c.title,
+            secondary: `${Math.round(c.length/60)} mins`
+          }
+        }
+      })
+
+      const runTime = chapters.map(c => c.mins).reduce((a, v) => a + v, 0)
 
       return {
         course,
         singleClass,
         runTime,
-        chapters: chapters.map(c => {
-          return {
-            ...c,
-            url: `/courses/${course.slug}/${singleClass.slug}/${c.slug}`,
-            text: {
-              main: c.title,
-              secondary: `${Math.ceil(c.length/60)} mins`
-            }
-          }
-        })
+        chapters
       }
     } catch (e) {
       error(e)
       return false
-    }
-
-    function courseLength(times) {
-      const timestamp = times.reduce((acc, item) => acc + item, 0)
-      const h = Math.floor(timestamp / 60 / 60)
-      const m = Math.floor(timestamp / 60) - (h * 60)
-      return h.toString().padStart(2, '0') + ':' + m.toString().padStart(2, '0')
     }
   }
 }

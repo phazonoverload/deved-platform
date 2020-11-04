@@ -20,7 +20,7 @@
               {{ course.title }}
             </h1>
             <h2>{{course.summary}}</h2>
-            <small>{{classes.length}} Classes &bull; {{chapters.length}} Chapters &bull; {{runTime}} Runtime</small>
+            <small>{{classes.length}} Classes &bull; {{chapters.length}} Chapters &bull; {{runTime}} Total</small>
           </div>
           <hr class="hr--short Vlt-gradient--blue-to-pink Vlt-margin--A-top3" />
           <div
