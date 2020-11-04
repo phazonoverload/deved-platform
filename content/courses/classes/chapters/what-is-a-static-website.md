@@ -4,4 +4,5 @@ title: "What is a static website?"
 description: "Lorem ipsum class desc"
 youtube: "PzboFBOeazM"
 order: 1
+length: 275
 ---
