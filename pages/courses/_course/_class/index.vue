@@ -3,10 +3,7 @@
     <div class="Vlt-grid Vlt-grid--stack-flush">
       <div class="Vlt-col" />
       <div class="Vlt-col Vlt-col--2of3">
-        <div
-          class="Vlt-card"
-          property="mainEntityOfPage"
-        >
+        <div class="Vlt-card" property="mainEntityOfPage">
           <div class="Vlt-card__header">
             <h1 property="headline">{{ singleClass.title }}</h1>
           </div>
@@ -52,13 +49,14 @@ export default {
         .fetch()
 
       chapters = chapters.map(c => {
+        const m = Math.round(c.length/60)
         return {
           ...c,
           url: `/courses/${course.slug}/${singleClass.slug}/${c.slug}`,
           mins: Math.round(c.length/60),
           text: {
             main: c.title,
-            secondary: `${Math.round(c.length/60)} mins`
+            secondary: `${m} ${m > 1 ? 'mins' : 'min'}`
           }
         }
       })
