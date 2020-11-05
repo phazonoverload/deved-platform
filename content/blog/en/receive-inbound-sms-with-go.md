@@ -1,5 +1,5 @@
 ---
-title: Receive Inbound Sms With Go
+title: Receive Inbound SMS With Go
 description: A tutorial that teaches how to receive SMS messages with Go from
   Vonage's SMS API.
 thumbnail: /content/blog/receive-inbound-sms-with-go/blog_go_sms_1200x600.png
@@ -11,12 +11,12 @@ category: tutorial
 tags:
   - sms-api
   - go
-comments: true
+comments: false
 spotlight: false
 redirect: ""
 canonical: ""
 outdated: false
-outdated_url: ""
+replacement_url: ""
 ---
 In a previous post, we showed you how to [send an SMS with Go](https://www.nexmo.com/blog/2019/08/28/how-to-send-sms-with-go-dr). This post will show you how to receive SMS messages with your Vonage virtual number.
 
