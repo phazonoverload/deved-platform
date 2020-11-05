@@ -18,7 +18,7 @@
             <span class="Vlt-list-item__text">{{lo}}</span>
           </li>
       </ul>
-      <a class="Vlt-btn Vlt-btn--primary" :href="`/courses/${module.course}/${module.slug}`">Go to class</a>
+      <NuxtLink class="Vlt-btn Vlt-btn--primary" :to="`/courses/${module.course}/${module.slug}`">Go to class</NuxtLink>
     </div>
   </div>
 </template>
