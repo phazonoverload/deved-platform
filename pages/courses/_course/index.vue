@@ -19,7 +19,7 @@
             <h1 property="headline">
               {{ course.title }}
             </h1>
-            <h2>{{course.summary}}</h2>
+            <h2 class='summary'>{{course.summary}}</h2>
             <small>{{classes.length}} Classes &bull; {{chapters.length}} Chapters &bull; {{runTime}} Total</small>
           </div>
           <hr class="hr--short Vlt-gradient--blue-to-pink Vlt-margin--A-top3" />
@@ -88,6 +88,9 @@ export default {
 }
 .Vlt-card__header img {
   border-radius: 6px;
+}
+.summary {
+  margin: 1rem 0 !important;
 }
 </style>
 

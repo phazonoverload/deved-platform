@@ -1,7 +1,7 @@
 ---
 title: "OneHack Academy"
-thumbnail: /content/courses/onehack/header.jpg
-summary: Short course description
+thumbnail: /content/courses/onehack/header.png
+summary: Learn to Code from Scratch with JavaScript
 instructor: kevinlewis
 ---
 
