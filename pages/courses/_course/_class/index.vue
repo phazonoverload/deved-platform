@@ -1,5 +1,5 @@
 <template>
-<div class="Course Class Vlt-container">
+  <div class="Course Class Vlt-container">
     <div class="Vlt-grid Vlt-grid--stack-flush">
       <div class="Vlt-col" />
       <div class="Vlt-col Vlt-col--2of3">
