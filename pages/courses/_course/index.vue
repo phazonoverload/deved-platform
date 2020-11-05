@@ -48,6 +48,7 @@
 </template>
 
 <script>
+import config from '~/modules/config'
 export default {
   async asyncData({ $content, params, error }) {
     try {
@@ -66,7 +67,7 @@ export default {
         .fetch()
 
       const runTime = courseLength(chapters.map(c => c.length))
-      return { course, classes, chapters, runTime }
+      return { course, classes, chapters, runTime, baseUrl: config.baseUrl, }
     } catch (e) {
       error(e)
       return false
@@ -77,6 +78,35 @@ export default {
       const h = Math.floor(timestamp / 60 / 60)
       const m = Math.floor(timestamp / 60) - (h * 60)
       return h.toString().padStart(2, '0') + ':' + m.toString().padStart(2, '0')
+    }
+  },
+  head() {
+    return {
+      title: `${this.course.title}`,
+      meta: [
+        { hid: 'keywords', name: 'keywords', content:`${this.course.keywords.join(',')}` },
+        { hid: 'description', name: 'description', content:`${this.course.summary}` },
+        ...this.postMeta()
+      ]
+    }
+  },
+  methods: {
+    postMeta() {
+      let thumbnail = this.course.thumbnail
+      if (typeof thumbnail !== 'undefined' && !thumbnail.startsWith('http')) {
+        thumbnail = `${this.baseUrl}${thumbnail}`
+      }
+      return [
+        { hid: 'twitter:url', name: 'twitter:url', content: `${this.baseUrl}${this.course.path}` },
+        { hid: 'twitter:title', name: 'twitter:title', content: `${this.course.title}${config.baseSplitter}${config.baseTitle}` },
+        { hid: 'twitter:description', name: 'twitter:description', content: this.course.summary },
+        { hid: 'twitter:image', name: 'twitter:image', content: `${thumbnail || '/images/generic-social-card.png'}` },
+        { hid: 'twitter:image:alt', name: 'twitter:image:alt', content: `${this.course.title}${config.baseSplitter}${config.baseBrand}` },
+        { hid: 'og:url', property: 'og:url', content: `${this.baseUrl}${this.course.path}` },
+        { hid: 'og:title', property: 'og:title', content: `${this.course.title}${config.baseSplitter}${config.baseTitle}` },
+        { hid: 'og:description', property: 'og:description', content: this.course.summary },
+        { hid: 'og:image', property: 'og:image', content: `${thumbnail || '/images/generic-social-card.png'}` }
+      ]
     }
   }
 }

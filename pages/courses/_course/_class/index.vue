@@ -32,6 +32,7 @@
 </template>
 
 <script>
+import config from '~/modules/config'
 export default {
   async asyncData({ $content, params, error }) {
     try {
@@ -63,15 +64,39 @@ export default {
 
       const runTime = chapters.map(c => c.mins).reduce((a, v) => a + v, 0)
 
-      return {
-        course,
-        singleClass,
-        runTime,
-        chapters
-      }
+      return { course, singleClass, runTime, chapters, baseUrl: config.baseUrl }
     } catch (e) {
       error(e)
       return false
+    }
+  },
+  head() {
+    return {
+      title: `${this.singleClass.title}${config.baseSplitter}${this.course.title}`,
+      meta: [
+        { hid: 'keywords', name: 'keywords', content:`${this.course.keywords.join(',')}` },
+        { hid: 'description', name: 'description', content:`${this.course.summary}` },
+        ...this.postMeta()
+      ]
+    }
+  },
+  methods: {
+    postMeta() {
+      let thumbnail = this.course.thumbnail
+      if (typeof thumbnail !== 'undefined' && !thumbnail.startsWith('http')) {
+        thumbnail = `${this.baseUrl}${thumbnail}`
+      }
+      return [
+        { hid: 'twitter:url', name: 'twitter:url', content: `${this.baseUrl}${this.course.path}` },
+        { hid: 'twitter:title', name: 'twitter:title', content: `${this.course.title}${config.baseSplitter}${config.baseTitle}` },
+        { hid: 'twitter:description', name: 'twitter:description', content: this.course.summary },
+        { hid: 'twitter:image', name: 'twitter:image', content: `${thumbnail || '/images/generic-social-card.png'}` },
+        { hid: 'twitter:image:alt', name: 'twitter:image:alt', content: `${this.course.title}${config.baseSplitter}${config.baseBrand}` },
+        { hid: 'og:url', property: 'og:url', content: `${this.baseUrl}${this.course.path}` },
+        { hid: 'og:title', property: 'og:title', content: `${this.course.title}${config.baseSplitter}${config.baseTitle}` },
+        { hid: 'og:description', property: 'og:description', content: this.course.summary },
+        { hid: 'og:image', property: 'og:image', content: `${thumbnail || '/images/generic-social-card.png'}` }
+      ]
     }
   }
 }
