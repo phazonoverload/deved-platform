@@ -3,6 +3,7 @@
     <div class="Vlt-grid Vlt-grid--stack-flush">
       <div class="Vlt-col" />
       <div class="Vlt-col Vlt-col--2of3">
+        <Breadcrumbs />
         <div
           class="Vlt-card"
           property="mainEntityOfPage"
@@ -113,9 +114,6 @@ export default {
 </script>
 
 <style scoped>
-.Course__landing {
-  margin-top: 1em;
-}
 .Vlt-card__header img {
   border-radius: 6px;
 }

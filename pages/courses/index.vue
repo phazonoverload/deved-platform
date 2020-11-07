@@ -1,17 +1,20 @@
 <template>
-  <div class="Vlt-container">
-      <div class="header">
-        <h1>Courses</h1>
-      </div>
-      <nuxt-link :to="`/courses/${course.slug}`" class="Vlt-card Vlt-bg-white" v-for="course in courses" :key="course.slug">
-        <img :src="course.thumbnail" :alt="course.title">
-        <div class="info">
-          <h1 property="headline">
-            {{ course.title }}
-          </h1>
-          <h2 class='summary'>{{course.summary}}</h2>
-        </div>
-      </nuxt-link>
+  <div>
+    <header class="full-width">
+      <PageHero>Courses from the Vonage Team</PageHero>
+    </header>
+    <div class="Vlt-container">
+        <Breadcrumbs />
+        <nuxt-link :to="`/courses/${course.slug}`" class="Vlt-card Vlt-bg-white course" v-for="course in courses" :key="course.slug">
+          <img :src="course.thumbnail" :alt="course.title">
+          <div class="info">
+            <h1 property="headline">
+              {{ course.title }}
+            </h1>
+            <h2 class='summary'>{{course.summary}}</h2>
+          </div>
+        </nuxt-link>
+    </div>
   </div>
 </template>
 
@@ -40,6 +43,12 @@ export default {
 .header {
   text-align: center;
   padding: 2em 0;
+}
+.full-width {
+  width: 100vw;
+}
+.Vlt-container {
+  padding: 0 1em;
 }
 img {
   border-radius: 6px;

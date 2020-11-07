@@ -3,6 +3,7 @@
     <div class="Vlt-grid Vlt-grid--stack-flush">
       <div class="Vlt-col" />
       <div class="Vlt-col Vlt-col--2of3">
+        <Breadcrumbs />
         <div class="Vlt-card" property="mainEntityOfPage">
           <div class="Vlt-card__header">
             <h1 property="headline">{{ singleClass.title }}</h1>
@@ -103,9 +104,6 @@ export default {
 </script>
 
 <style scoped>
-.Class {
-  margin-top: 1em;
-}
 .Vlt-card__header {
   padding-bottom: 0;
 }
