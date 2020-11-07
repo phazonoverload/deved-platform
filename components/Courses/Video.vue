@@ -1,6 +1,13 @@
 <template>
   <div class="video">
-      <iframe :src="`https://www.youtube.com/embed/${id}`" width="560" height="349" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe
+      :src="`https://www.youtube.com/embed/${id}`"
+      width="560"
+      height="349"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
   </div>
 </template>
 
@@ -20,8 +27,8 @@ export default {
   position: relative;
   padding-bottom: 56.25%; /* 16:9 */
   height: 0;
-	overflow: hidden;
-	border-radius: 6px;
+  overflow: hidden;
+  border-radius: 6px;
 }
 iframe {
   position: absolute;

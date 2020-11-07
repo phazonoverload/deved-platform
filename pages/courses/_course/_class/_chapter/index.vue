@@ -9,7 +9,10 @@
             <h1 property="headline">{{ chapter.title }}</h1>
           </div>
           <hr class="hr--short Vlt-gradient--blue-to-pink Vlt-margin--A-top2" />
-          <div class="Vlt-card__content Vlt-margin--A-top3" property="articleBody">
+          <div
+            class="Vlt-card__content Vlt-margin--A-top3"
+            property="articleBody"
+          >
             <Video :id="chapter.youtube" />
             <nuxt-content :document="chapter" />
           </div>
@@ -32,9 +35,13 @@ import config from '~/modules/config'
 export default {
   async asyncData({ $content, params, error }) {
     try {
-      const chapter = await $content(`courses/classes/chapters/${params.chapter}`)
+      const chapter = await $content(
+        `courses/classes/chapters/${params.chapter}`
+      )
         .fetch()
-        .catch(err => error({ statusCode: 404, message: 'Page not found', err }))
+        .catch((err) =>
+          error({ statusCode: 404, message: 'Page not found', err })
+        )
 
       const surroundingChapters = await $content('courses/classes/chapters')
         .where({ class: { $eq: params.class } })
@@ -42,23 +49,31 @@ export default {
         .surround(params.chapter)
         .fetch()
 
-      const [prev, next] = surroundingChapters.map(c => {
-        if(c) {
+      const [prev, next] = surroundingChapters.map((c) => {
+        if (c) {
           return {
             ...c,
-            slug: `/courses/${params.course}/${c.class}/${c.slug}`
+            slug: `/courses/${params.course}/${c.class}/${c.slug}`,
           }
         } else {
           return c
         }
       })
 
-      const singleClass = await $content(`courses/classes/${params.class}`).fetch()
+      const singleClass = await $content(
+        `courses/classes/${params.class}`
+      ).fetch()
       const course = await $content(`courses/${params.course}`).fetch()
 
-      return { course, singleClass, chapter, prev, next, baseUrl: config.baseUrl }
+      return {
+        course,
+        singleClass,
+        chapter,
+        prev,
+        next,
+        baseUrl: config.baseUrl,
+      }
     } catch (e) {
-      console.log(e)
       error(e)
       return false
     }
@@ -67,10 +82,18 @@ export default {
     return {
       title: `${this.chapter.title}${config.baseSplitter}${this.singleClass.title}${config.baseSplitter}${this.course.title}`,
       meta: [
-        { hid: 'keywords', name: 'keywords', content:`${this.course.keywords.join(',')}` },
-        { hid: 'description', name: 'description', content:`${this.course.summary}` },
-        ...this.postMeta()
-      ]
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: `${this.course.keywords.join(',')}`,
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: `${this.course.summary}`,
+        },
+        ...this.postMeta(),
+      ],
     }
   },
   methods: {
@@ -80,18 +103,54 @@ export default {
         thumbnail = `${this.baseUrl}${thumbnail}`
       }
       return [
-        { hid: 'twitter:url', name: 'twitter:url', content: `${this.baseUrl}${this.course.path}` },
-        { hid: 'twitter:title', name: 'twitter:title', content: `${this.course.title}${config.baseSplitter}${config.baseTitle}` },
-        { hid: 'twitter:description', name: 'twitter:description', content: this.course.summary },
-        { hid: 'twitter:image', name: 'twitter:image', content: `${thumbnail || '/images/generic-social-card.png'}` },
-        { hid: 'twitter:image:alt', name: 'twitter:image:alt', content: `${this.course.title}${config.baseSplitter}${config.baseBrand}` },
-        { hid: 'og:url', property: 'og:url', content: `${this.baseUrl}${this.course.path}` },
-        { hid: 'og:title', property: 'og:title', content: `${this.course.title}${config.baseSplitter}${config.baseTitle}` },
-        { hid: 'og:description', property: 'og:description', content: this.course.summary },
-        { hid: 'og:image', property: 'og:image', content: `${thumbnail || '/images/generic-social-card.png'}` }
+        {
+          hid: 'twitter:url',
+          name: 'twitter:url',
+          content: `${this.baseUrl}${this.course.path}`,
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: `${this.course.title}${config.baseSplitter}${config.baseTitle}`,
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: this.course.summary,
+        },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: `${thumbnail || '/images/generic-social-card.png'}`,
+        },
+        {
+          hid: 'twitter:image:alt',
+          name: 'twitter:image:alt',
+          content: `${this.course.title}${config.baseSplitter}${config.baseBrand}`,
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: `${this.baseUrl}${this.course.path}`,
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: `${this.course.title}${config.baseSplitter}${config.baseTitle}`,
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.course.summary,
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: `${thumbnail || '/images/generic-social-card.png'}`,
+        },
       ]
-    }
-  }
+    },
+  },
 }
 </script>
 

@@ -1,24 +1,32 @@
 <template>
   <div class="Module">
     <div class="icon">
-      <img :src="module.icon" :alt="module.title">
+      <img :src="module.icon" :alt="module.title" />
     </div>
     <div class="content">
-      <h3>{{module.title}}</h3>
-      <p class="desc">{{module.description}}</p>
+      <h3>{{ module.title }}</h3>
+      <p class="desc">{{ module.description }}</p>
       <ul>
-          <li v-for="(lo, i) in module.key_learnings" :key="i" class="Vlt-list-item">
-            <span class="Vlt-list-item__icon">
-              <svg class="Vlt-icon Vlt-icon--smaller Vlt-blue-light">
-                <use
-                  xlink:href="../../node_modules/@vonagevolta/volta2/dist/symbol/volta-icons.svg#Vlt-icon-check-circle-negative"
-                />
-              </svg>
-            </span>
-            <span class="Vlt-list-item__text">{{lo}}</span>
-          </li>
+        <li
+          v-for="(lo, i) in module.key_learnings"
+          :key="i"
+          class="Vlt-list-item"
+        >
+          <span class="Vlt-list-item__icon">
+            <svg class="Vlt-icon Vlt-icon--smaller Vlt-blue-light">
+              <use
+                xlink:href="../../node_modules/@vonagevolta/volta2/dist/symbol/volta-icons.svg#Vlt-icon-check-circle-negative"
+              />
+            </svg>
+          </span>
+          <span class="Vlt-list-item__text">{{ lo }}</span>
+        </li>
       </ul>
-      <NuxtLink class="Vlt-btn Vlt-btn--primary" :to="`/courses/${module.course}/${module.slug}`">Go to class</NuxtLink>
+      <NuxtLink
+        class="Vlt-btn Vlt-btn--primary"
+        :to="`/courses/${module.course}/${module.slug}`"
+        >Go to class</NuxtLink
+      >
     </div>
   </div>
 </template>

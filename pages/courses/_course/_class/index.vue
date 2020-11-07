@@ -13,9 +13,14 @@
             class="Vlt-card__content Vlt-margin--A-top3"
             property="articleBody"
           >
-            <p class="summary"><b>{{singleClass.description}}</b></p>
+            <p class="summary">
+              <b>{{ singleClass.description }}</b>
+            </p>
             <Video :id="singleClass.youtube" />
-            <small>{{chapters.length}} Chapters &bull; {{runTime}} Minutes Total</small>
+            <small
+              >{{ chapters.length }} Chapters &bull; {{ runTime }} Minutes
+              Total</small
+            >
             <Listing :links="chapters" />
           </div>
         </div>
@@ -39,31 +44,35 @@ export default {
     try {
       const course = await $content(`courses/${params.course}`)
         .fetch()
-        .catch(err => error({ statusCode: 404, message: 'Page not found', err }))
+        .catch((err) =>
+          error({ statusCode: 404, message: 'Page not found', err })
+        )
 
       const singleClass = await $content(`courses/classes/${params.class}`)
         .fetch()
-        .catch(err => error({ statusCode: 404, message: 'Page not found', err }))
+        .catch((err) =>
+          error({ statusCode: 404, message: 'Page not found', err })
+        )
 
       let chapters = await $content(`courses/classes/chapters`)
         .where({ class: { $eq: params.class } })
         .sortBy('order', 'asc')
         .fetch()
 
-      chapters = chapters.map(c => {
-        const m = Math.round(c.length/60)
+      chapters = chapters.map((c) => {
+        const m = Math.round(c.length / 60)
         return {
           ...c,
           url: `/courses/${course.slug}/${singleClass.slug}/${c.slug}`,
-          mins: Math.round(c.length/60),
+          mins: Math.round(c.length / 60),
           text: {
             main: c.title,
-            secondary: `${m} ${m > 1 ? 'mins' : 'min'}`
-          }
+            secondary: `${m} ${m > 1 ? 'mins' : 'min'}`,
+          },
         }
       })
 
-      const runTime = chapters.map(c => c.mins).reduce((a, v) => a + v, 0)
+      const runTime = chapters.map((c) => c.mins).reduce((a, v) => a + v, 0)
 
       return { course, singleClass, runTime, chapters, baseUrl: config.baseUrl }
     } catch (e) {
@@ -75,10 +84,18 @@ export default {
     return {
       title: `${this.singleClass.title}${config.baseSplitter}${this.course.title}`,
       meta: [
-        { hid: 'keywords', name: 'keywords', content:`${this.course.keywords.join(',')}` },
-        { hid: 'description', name: 'description', content:`${this.course.summary}` },
-        ...this.postMeta()
-      ]
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: `${this.course.keywords.join(',')}`,
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: `${this.course.summary}`,
+        },
+        ...this.postMeta(),
+      ],
     }
   },
   methods: {
@@ -88,18 +105,54 @@ export default {
         thumbnail = `${this.baseUrl}${thumbnail}`
       }
       return [
-        { hid: 'twitter:url', name: 'twitter:url', content: `${this.baseUrl}${this.course.path}` },
-        { hid: 'twitter:title', name: 'twitter:title', content: `${this.course.title}${config.baseSplitter}${config.baseTitle}` },
-        { hid: 'twitter:description', name: 'twitter:description', content: this.course.summary },
-        { hid: 'twitter:image', name: 'twitter:image', content: `${thumbnail || '/images/generic-social-card.png'}` },
-        { hid: 'twitter:image:alt', name: 'twitter:image:alt', content: `${this.course.title}${config.baseSplitter}${config.baseBrand}` },
-        { hid: 'og:url', property: 'og:url', content: `${this.baseUrl}${this.course.path}` },
-        { hid: 'og:title', property: 'og:title', content: `${this.course.title}${config.baseSplitter}${config.baseTitle}` },
-        { hid: 'og:description', property: 'og:description', content: this.course.summary },
-        { hid: 'og:image', property: 'og:image', content: `${thumbnail || '/images/generic-social-card.png'}` }
+        {
+          hid: 'twitter:url',
+          name: 'twitter:url',
+          content: `${this.baseUrl}${this.course.path}`,
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: `${this.course.title}${config.baseSplitter}${config.baseTitle}`,
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: this.course.summary,
+        },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: `${thumbnail || '/images/generic-social-card.png'}`,
+        },
+        {
+          hid: 'twitter:image:alt',
+          name: 'twitter:image:alt',
+          content: `${this.course.title}${config.baseSplitter}${config.baseBrand}`,
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: `${this.baseUrl}${this.course.path}`,
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: `${this.course.title}${config.baseSplitter}${config.baseTitle}`,
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.course.summary,
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: `${thumbnail || '/images/generic-social-card.png'}`,
+        },
       ]
-    }
-  }
+    },
+  },
 }
 </script>
 

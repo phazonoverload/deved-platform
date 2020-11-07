@@ -2,8 +2,10 @@
   <ol>
     <li v-for="(link, i) in links" :key="i">
       <a :href="link.url">
-        <span><b>{{link.text.main}}</b></span>
-        <span v-if="link.text.secondary">{{link.text.secondary}}</span>
+        <span
+          ><b>{{ link.text.main }}</b></span
+        >
+        <span v-if="link.text.secondary">{{ link.text.secondary }}</span>
       </a>
     </li>
   </ol>
