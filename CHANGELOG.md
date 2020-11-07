@@ -1,5 +1,24 @@
 # Changelog
 
+## v1.2.1 - Fixes to author cards and and author twitter field  (07/11/2020)
+### Fixes
+
+- show text for author name when no profile link is available (#320)
+- remove manditory twitter field from author profile (#298)
+
+---
+
+## v1.2.0 - Semantic breadcrumbs, lowercase tags, opensearch (07/11/2020)
+### Fixes
+
+- Some tags display uppercase
+- Opensearch XML config missing (#317)
+
+### Features
+
+- Rebuild breadcrumbs to follow semantic path rules (#303)
+---
+
 ## v1.1.3 - Content and blog previews in CMS (05/11/2020)
 ### Fixes
 - Enables blog post previews in Netlify CMS editor screen (#260)
