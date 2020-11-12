@@ -179,4 +179,7 @@ export default {
   background: #131415;
   color: #c2c4cc;
 }
+.help {
+  margin-top: 2em;
+}
 </style>
