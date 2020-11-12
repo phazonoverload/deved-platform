@@ -8,7 +8,7 @@ key_learnings:
   - Functions
   - DOM Manipulations
   - APIs
-youtube: "PzboFBOeazM"
+youtube: "-_iPyQLUSwA"
 icon: /content/courses/onehack/javascript.png
 order: 2
 ---

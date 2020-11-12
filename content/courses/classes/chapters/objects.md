@@ -1,7 +1,7 @@
 ---
 class: 'javascript'
-title: 'Data Types 3 - Objects'
-youtube: 'PzboFBOeazM'
+title: 'Objects'
+youtube: 'PBJdUgbLNQQ'
 order: 8
 length: 310
 ---

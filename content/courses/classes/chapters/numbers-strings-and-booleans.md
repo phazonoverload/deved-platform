@@ -1,7 +1,7 @@
 ---
 class: 'javascript'
-title: 'Data Types 1 - Numbers, Strings & Booleans'
-youtube: 'PzboFBOeazM'
+title: 'Numbers, Strings & Booleans'
+youtube: 'rISX_rix9WQ'
 order: 4
 length: 127
 ---

@@ -1,7 +1,7 @@
 ---
 class: 'javascript'
-title: 'Data Types 2 - Arrays'
-youtube: 'PzboFBOeazM'
+title: 'Arrays'
+youtube: 'BKhrTKovYdA'
 order: 6
 length: 243
 ---

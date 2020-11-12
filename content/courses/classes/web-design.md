@@ -7,7 +7,7 @@ key_learnings:
   - CSS
   - CSS Grid
   - Bootstrap
-youtube: "PzboFBOeazM"
+youtube: "MYhQi4A9a1U"
 icon: /content/courses/onehack/web-design.png
 order: 1
 ---
