@@ -67,7 +67,7 @@ export default {
           mins: Math.round(c.length / 60),
           text: {
             main: c.title,
-            secondary: `${m} ${m > 1 ? 'mins' : 'min'}`,
+            secondary: `${m > 0 ? m : 1} ${m > 1 ? 'mins' : 'min'}`,
           },
         }
       })
