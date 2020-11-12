@@ -20,8 +20,7 @@
             <h2 class="summary">{{ course.summary }}</h2>
             <small
               >{{ classes.length }} Classes &bull;
-              {{ chapters.length }} Chapters &bull; {{ runTime }} Minutes
-              Total</small
+              {{ chapters.length }} Chapters &bull; {{ runTime }} Total</small
             >
           </div>
           <hr class="hr--short Vlt-gradient--blue-to-pink Vlt-margin--A-top3" />
@@ -74,21 +73,22 @@ export default {
         .sortBy('order', 'asc')
         .fetch()
 
-      // const runTime = courseLength(chapters.map((c) => c.length))
-      const runTime = chapters
-        .map((c) => c.length)
-        .reduce((a, v) => a + Math.round(v / 60), 0)
+      const runTime = courseLength(
+        chapters
+          .map((c) => c.length)
+          .reduce((a, v) => a + Math.round(v / 60), 0)
+      )
+
       return { course, classes, chapters, runTime, baseUrl: config.baseUrl }
     } catch (e) {
       error(e)
       return false
     }
 
-    function courseLength(times) {
-      // const timestamp = times.reduce((acc, item) => acc + item, 0)
-      // const h = Math.floor(timestamp / 60 / 60)
-      // const m = Math.floor(timestamp / 60) - h * 60
-      // return h.toString().padStart(2, '0') + ':' + m.toString().padStart(2, '0')
+    function courseLength(mins) {
+      const h = Math.floor(mins / 60)
+      const m = Math.floor(mins) - h * 60
+      return h.toString() + ':' + m.toString().padStart(2, '0')
     }
   },
   head() {

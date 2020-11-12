@@ -89,8 +89,6 @@ export default {
         }
       })
 
-      console.log(prev, next)
-
       const runTime = chapters.map((c) => c.mins).reduce((a, v) => a + v, 0)
 
       return {
