@@ -9,6 +9,6 @@ key_learnings:
   - DOM Manipulations
   - APIs
 youtube: "PzboFBOeazM"
-icon: /content/courses/onehack/web-design.png
+icon: /content/courses/onehack/javascript.png
 order: 2
 ---

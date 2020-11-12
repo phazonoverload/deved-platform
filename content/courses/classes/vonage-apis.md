@@ -9,6 +9,6 @@ key_learnings:
   - Making & Receiving Calls
   - Making & Receiving SMS
 youtube: "PzboFBOeazM"
-icon: /content/courses/onehack/web-design.png
+icon: /content/courses/onehack/vonage.png
 order: 4
 ---

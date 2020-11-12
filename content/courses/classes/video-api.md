@@ -8,6 +8,6 @@ key_learnings:
   - Generating Access Tokens
   - Video in the Browser
 youtube: "PzboFBOeazM"
-icon: /content/courses/onehack/web-design.png
+icon: /content/courses/onehack/video-api.png
 order: 6
 ---

@@ -1,7 +1,7 @@
 ---
 course: "onehack"
 title: "Web Design"
-description: "Lorem Ipsum Web Design Description"
+description: "Learn the skills required to design and create web pages"
 key_learnings:
   - HTML
   - CSS

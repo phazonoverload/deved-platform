@@ -7,6 +7,6 @@ key_learnings:
   - CRUD with NeDB
   - Using Airtable
 youtube: "PzboFBOeazM"
-icon: /content/courses/onehack/web-design.png
+icon: /content/courses/onehack/databases.png
 order: 5
 ---
