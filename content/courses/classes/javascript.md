@@ -1,7 +1,7 @@
 ---
 course: "onehack"
 title: "JavaScript"
-description: "Lorem Ipsum JavaScript Description"
+description: "Learn the fundamentals of the JavaScript programming language, and use it to make interactive web pages"
 key_learnings:
   - Data Types
   - Control Flow
