@@ -15,6 +15,9 @@
           >
             <Video :id="chapter.youtube" />
             <nuxt-content :document="chapter" />
+            <div v-if="course.support" class="help">
+              <p v-html="course.support"></p>
+            </div>
           </div>
         </div>
       </div>

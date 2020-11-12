@@ -2,6 +2,7 @@
 title: "OneHack Academy"
 thumbnail: /content/courses/onehack/header.png
 summary: Learn to Code from Scratch with JavaScript
+support: 'Need help? Have questions? <a href="https://developer.nexmo.com/slack">Join the Vonage Developer Community Slack</a> and use the channel #onehack.'
 instructor: kevinlewis
 keywords:
   - javascript
