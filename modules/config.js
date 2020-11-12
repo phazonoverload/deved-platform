@@ -24,7 +24,6 @@ const config = {
     'communication apis',
   ],
   postsPerPage: 12,
-  disqusShortname: process.env.DISQUS_SHORTNAME || 'vonage-dev-blog-dev',
   repoUrl:
     process.env.REPOSITORY_URL || 'https://github.com/Nexmo/deved-platform',
   repoBranch: process.env.BRANCH || 'main',
@@ -32,6 +31,15 @@ const config = {
   algoliaSearchKey: process.env.ALGOLIA_SEARCH_KEY,
   algoliaIndex: process.env.ALGOLIA_INDEX,
   signer: process.env.SIGNING_SECRET || 'secret',
+  tagMap: {
+    voyagers: ['vonage-voyagers'],
+    careers: ['career'],
+    dotnet: ['dot-net', 'asp-dot-net', '.net', 'asp.net'],
+    go: ['go-lang', 'golang'],
+    javascript: ['js'],
+    node: ['nodejs', 'node.js'],
+    opensource: ['open-source'],
+  },
   get headMeta() {
     return [
       { charset: 'utf-8' },
