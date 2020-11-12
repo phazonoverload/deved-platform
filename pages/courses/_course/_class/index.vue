@@ -30,7 +30,7 @@
     <div class="Vlt-grid Vlt-grid--stack-flush">
       <div class="Vlt-col" />
       <div class="Vlt-col Vlt-col--2of3">
-        <!-- Inner - prev/next goes here -->
+        <prev-next :prev="prev" :next="next" end="End of course 🎉" />
       </div>
       <div class="Vlt-col" />
     </div>
@@ -72,9 +72,36 @@ export default {
         }
       })
 
+      const surroundingClasses = await $content('courses/classes')
+        .where({ course: { $eq: params.course } })
+        .sortBy('order', 'asc')
+        .surround(params.class)
+        .fetch()
+
+      const [prev, next] = surroundingClasses.map((c) => {
+        if (c) {
+          return {
+            ...c,
+            slug: `/courses/${params.course}/${c.slug}`,
+          }
+        } else {
+          return c
+        }
+      })
+
+      console.log(prev, next)
+
       const runTime = chapters.map((c) => c.mins).reduce((a, v) => a + v, 0)
 
-      return { course, singleClass, runTime, chapters, baseUrl: config.baseUrl }
+      return {
+        course,
+        singleClass,
+        runTime,
+        chapters,
+        prev,
+        next,
+        baseUrl: config.baseUrl,
+      }
     } catch (e) {
       error(e)
       return false
