@@ -162,7 +162,7 @@ export default {
   padding-bottom: 0;
 }
 .nuxt-content:not(:empty) {
-  margin-top: 2em;
+  margin-top: 2.5em;
 }
 .nuxt-content >>> pre {
   border-radius: 8px;

@@ -1,7 +1,7 @@
 ---
 class: 'node'
-title: 'Getting Started with Express'
-youtube: 'pGdIb4vPayM'
-order: 6
-length: 476
+title: 'Installing Packages'
+youtube: 'i67pay6dHW4'
+order: 5
+length: 185
 ---
