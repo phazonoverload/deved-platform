@@ -1,7 +1,7 @@
 ---
 course: "onehack"
 title: "Node.js"
-description: "Lorem Ipsum Nodejs Description"
+description: "Learn how to use Node.js, Express.js and Nunjucks to create dynamic web applications"
 key_learnings:
   - Working with Node
   - Express.js Route Handlers
