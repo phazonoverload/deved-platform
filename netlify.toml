@@ -25,3 +25,9 @@
   to = "/.netlify/functions/image-svg"
   status = 200
   force = true
+
+[[redirects]]
+  from = "/onehack"
+  to = "/courses/onehack"
+  status = 301
+  force = true
