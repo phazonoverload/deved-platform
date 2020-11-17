@@ -22,7 +22,9 @@ keywords:
 ---
 OneHack Academy is Vonage's internal 'learn to code' course, and we are making it available to everyone. Through 6 classes you'll learn how to design and build web pages, how to write JavaScript, store data, and use several Vonage APIs.
 
-It is designed to be a useful piece of reference material that you can keep coming back to, as most videos cover a single topic and are less than 10 minutes long.
+It is designed to be a useful piece of reference material that you can keep coming back to, as most videos cover a single topic and are 10 minutes or less.
+
+This course will not make you good at any single topic. Instead, you will gain 'enough' knowledge in a wide range of areas needed for web development. Get a feel for what you like, and explore it further.
 
 ## Who this is for
 
