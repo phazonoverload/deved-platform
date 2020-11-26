@@ -1,22 +1,10 @@
 <template>
-  <section class="Blog__Full-width">
-    <header class="Blog__Full-width">
-      <PageHero class="Category-hero">
-        <Category :category="category" plural />
-      </PageHero>
-    </header>
-    <main class="Vlt-container">
-      <div class="Vlt-grid">
-        <div class="Vlt-col" />
-        <div class="Vlt-col Vlt-col--2of3">
-          <Breadcrumbs />
-        </div>
-        <div class="Vlt-col" />
-        <div class="Vlt-grid__separator" />
-        <Card v-for="post in posts" :key="post.route" :post="post" />
-      </div>
-    </main>
-  </section>
+  <main class="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
+    <Breadcrumbs :title="category.plural" />
+    <section class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <Card v-for="(post, i) in posts" :key="i" :post="post" />
+    </section>
+  </main>
 </template>
 
 <script>
@@ -33,7 +21,6 @@ export default {
           $and: [{ category: category.slug }, { published: { $ne: false } }],
         })
         .sortBy('published_at', 'desc')
-        .limit(config.postsPerPage)
         .fetch()
 
       if (posts.length === 0) {
@@ -48,13 +35,25 @@ export default {
       return error(e)
     }
   },
+
+  head() {
+    return {
+      title: `${this.category.plural}`,
+      meta: [
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          // Team Members & Authors » Developer Content from Vonage ♥
+          content: `${this.category.plural}${config.baseSplitter}${config.baseTitle}`,
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          // {author name} » Developer Content from Vonage ♥
+          content: `${this.category.plural}${config.baseSplitter}${config.baseTitle}`,
+        },
+      ],
+    }
+  },
 }
 </script>
-
-<style scoped>
-.Category-hero >>> .Blog-hero__content h3 .Vlt-badge {
-  font-size: 21px;
-  padding: 0 4px 0 0;
-  line-height: 1;
-}
-</style>

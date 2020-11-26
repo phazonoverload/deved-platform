@@ -1,3 +1,112 @@
+## [2.2.2](https://github.com/Nexmo/deved-platform/compare/v2.2.1...v2.2.2) (2020-11-25)
+
+
+### Bug Fixes
+
+* exclude certain urls from sitemaps ([107fb79](https://github.com/Nexmo/deved-platform/commit/107fb79c7c57ddbcdd2f2ea3c678f043ffb13b3e))
+* remove errant backtick from the end of the Vonage.com link ([9284ae4](https://github.com/Nexmo/deved-platform/commit/9284ae4d2d87cbfabb02718e6baf836cc63d1ecc))
+
+## [2.2.1](https://github.com/Nexmo/deved-platform/compare/v2.2.0...v2.2.1) (2020-11-25)
+
+
+### Bug Fixes
+
+* add google verification file ([cf071c4](https://github.com/Nexmo/deved-platform/commit/cf071c4f3c352f8cb6257497cdb85ee1a81298f9))
+* twitch test code removed ([a095f8e](https://github.com/Nexmo/deved-platform/commit/a095f8e2ae8e6e00f70aab14b7f23240439a73e3))
+
+# [2.2.0](https://github.com/Nexmo/deved-platform/compare/v2.1.6...v2.2.0) (2020-11-25)
+
+
+### Bug Fixes
+
+* add authors name to breadcrumb title ([#436](https://github.com/Nexmo/deved-platform/issues/436)) ([da85215](https://github.com/Nexmo/deved-platform/commit/da852159da56914a542e2b99367858825491d53a))
+* don't put links in quotes they become string literals and not treated as URLs ([#442](https://github.com/Nexmo/deved-platform/issues/442)) ([33b11ec](https://github.com/Nexmo/deved-platform/commit/33b11ec6eba1225b672a14ccd116ca36e92fead2))
+* error using object rather than object property for category name ([#438](https://github.com/Nexmo/deved-platform/issues/438)) ([fffa4aa](https://github.com/Nexmo/deved-platform/commit/fffa4aae61c48d25218c4b33eb87663931f1baf4))
+* tune z-index util classes to layer the overlays, buttons and images correctly ([#440](https://github.com/Nexmo/deved-platform/issues/440)) ([7a9a7f7](https://github.com/Nexmo/deved-platform/commit/7a9a7f7981046186a13c65b2a3f23c1080a6cd47))
+* use flex flex-col space-y-4 to achieve vertical spacing on aside child elements ([#439](https://github.com/Nexmo/deved-platform/issues/439)) ([a77e1e7](https://github.com/Nexmo/deved-platform/commit/a77e1e7462ea3f72a0b6a74e58f3cde06836b22e))
+
+
+### Features
+
+* add social network sharing buttons to blog aside ([#441](https://github.com/Nexmo/deved-platform/issues/441)) ([b3ee989](https://github.com/Nexmo/deved-platform/commit/b3ee989713325fd63fb61643bc2fea83c0c2a267))
+* add vonage.com link in header ([#437](https://github.com/Nexmo/deved-platform/issues/437)) ([cc25870](https://github.com/Nexmo/deved-platform/commit/cc258701910e7713ea33043248202d414e70470d))
+
+## [2.1.6](https://github.com/Nexmo/deved-platform/compare/v2.1.5...v2.1.6) (2020-11-24)
+
+
+### Bug Fixes
+
+* add redirect file for handling adhoc redirects ([beae008](https://github.com/Nexmo/deved-platform/commit/beae0084f4094dc34ec4660ffb645325c9924898))
+
+## [2.1.5](https://github.com/Nexmo/deved-platform/compare/v2.1.4...v2.1.5) (2020-11-24)
+
+
+### Bug Fixes
+
+* fix youtube width in mobile when using embed snippet instead of util component ([#431](https://github.com/Nexmo/deved-platform/issues/431)) ([85fb7c5](https://github.com/Nexmo/deved-platform/commit/85fb7c55fea92d296d7f08edfcc06a8a5e766840))
+
+## [2.1.4](https://github.com/Nexmo/deved-platform/compare/v2.1.3...v2.1.4) (2020-11-24)
+
+
+### Bug Fixes
+
+* add check for text before checking length in truncate plugin ([#430](https://github.com/Nexmo/deved-platform/issues/430)) ([3cf6568](https://github.com/Nexmo/deved-platform/commit/3cf656800d464a98d6fe749faf6722e1cb17ced9))
+
+## [2.1.3](https://github.com/Nexmo/deved-platform/compare/v2.1.2...v2.1.3) (2020-11-24)
+
+
+### Bug Fixes
+
+* ios issues with relative height to width inside flexbox ([5aeddfa](https://github.com/Nexmo/deved-platform/commit/5aeddfa5056a3eff0d078bdf7cd5ba76af8d2707))
+
+## [2.1.2](https://github.com/Nexmo/deved-platform/compare/v2.1.1...v2.1.2) (2020-11-23)
+
+
+### Bug Fixes
+
+* fix twitch pointer-events-none bug ([280b510](https://github.com/Nexmo/deved-platform/commit/280b510e81a471592ff23f2f5d203324f2989f2e))
+
+## [2.1.1](https://github.com/Nexmo/deved-platform/compare/v2.1.0...v2.1.1) (2020-11-23)
+
+
+### Bug Fixes
+
+* fallback on img, not nuxt-image, if image isn't suitable for optimization ([9b01a27](https://github.com/Nexmo/deved-platform/commit/9b01a278a42d70f9736d17d7449f139583f73deb))
+* minify js and css ([82dab04](https://github.com/Nexmo/deved-platform/commit/82dab04a8855c6ede1332dfecd8d06f4f2e282c9))
+
+# [2.1.0](https://github.com/Nexmo/deved-platform/compare/v2.0.0...v2.1.0) (2020-11-22)
+
+
+### Bug Fixes
+
+* certain import in typescript/js breaks page building - issue raised with nuxt content team ([7c29908](https://github.com/Nexmo/deved-platform/commit/7c299089155728914b289b4758a3f2453ce8097a))
+* fix social links for noreferrer ([92c40ef](https://github.com/Nexmo/deved-platform/commit/92c40ef2c8f20aa335b75c1dd3e1fea6cc8cb6dc))
+* missing placeholder for post images ([ea21dd0](https://github.com/Nexmo/deved-platform/commit/ea21dd0846a0107d9c1664e9c4bc45f9a86e221f))
+* nuxt/image url issues ([6492dde](https://github.com/Nexmo/deved-platform/commit/6492dde302678029cfaf0446ea23adbece4f53f3))
+* remove og:url - when set it overrides the derived URL ([62884eb](https://github.com/Nexmo/deved-platform/commit/62884ebcd7c39bcfbdc698b9cd1237d8299146c8))
+
+
+### Features
+
+* nuxt/image for responsive image optimization ([08aeb51](https://github.com/Nexmo/deved-platform/commit/08aeb51128acfd38b2be4080ff2d7b21d62f38f5))
+
+# [2.0.0](https://github.com/Nexmo/deved-platform/compare/v1.7.1...v2.0.0) (2020-11-21)
+
+
+* refactor!: new frontend using Tailwindcss (#411) ([1e67d67](https://github.com/Nexmo/deved-platform/commit/1e67d67482e3a701e6ef4b8b7e9b70964ed7437a)), closes [#411](https://github.com/Nexmo/deved-platform/issues/411)
+
+
+### BREAKING CHANGES
+
+* removes volta and introduces tailwindcss as the frontend framework
+
+## [1.7.1](https://github.com/Nexmo/deved-platform/compare/v1.7.0...v1.7.1) (2020-11-19)
+
+
+### Bug Fixes
+
+* remove query strings and anchor links from breadcrumbs ([c86aaff](https://github.com/Nexmo/deved-platform/commit/c86aaff94bb4cfde69685b5209bf97947f8f0cca))
+
 # [1.7.0](https://github.com/Nexmo/deved-platform/compare/v1.6.0...v1.7.0) (2020-11-13)
 
 

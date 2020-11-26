@@ -6,15 +6,38 @@ const config = {
   baseUrl:
     (process.env.CONTEXT === 'production'
       ? process.env.URL
-      : process.env.DEPLOY_PRIME_URL) || 'http://localhost:3000',
-  indexTitle: 'We ♥ content',
+      : process.env.DEPLOY_PRIME_URL) || 'http://localhost:8888',
+  indexTitle: 'Posts, Tutorials, and Streams',
   baseBrand: 'Vonage',
-  baseTitle: 'Developer content from Vonage',
+  baseTitle: 'Developer Content from Vonage ♥',
   baseSplitter: ' » ',
   baseDescription:
-    'Developer content from the team at Vonage, including posts on our Java, Node.js, Python, DotNet, Ruby and Go SDKs',
+    'Blog Posts, Tutorials, Streams, and more from Vonage. Develop connected applications with APIs for SMS, Messaging, Voice, Video, and Conversations.',
   baseKeywords: [
-    'developer tutorials',
+    'dispatch api',
+    'messages api',
+    'messages api sandbox',
+    'number insight api',
+    'number api',
+    'reports api',
+    'account api',
+    'pricing api',
+    'external accounts api',
+    'redact api',
+    'audit api',
+    'verify api',
+    'media api',
+    'voice api',
+    'conversation api',
+    'video api',
+    'sms api',
+    'station',
+    'spotlight',
+    'voyagers',
+    'tutorials',
+    'blog',
+    'videos',
+    'steams',
     'developer content',
     'vonage',
     'nexmo',
@@ -26,11 +49,13 @@ const config = {
   postsPerPage: 12,
   repoUrl:
     process.env.REPOSITORY_URL || 'https://github.com/Nexmo/deved-platform',
-  repoBranch: process.env.BRANCH || 'main',
+  repoBranch: process.env.HEAD || process.env.GIT_BRANCH || 'main',
   algoliaApplicationId: process.env.ALGOLIA_APPLICATION_ID,
   algoliaSearchKey: process.env.ALGOLIA_SEARCH_KEY,
   algoliaIndex: process.env.ALGOLIA_INDEX,
   signer: process.env.SIGNING_SECRET || 'secret',
+  nodeEnv: process.env.NODE_ENV || 'development',
+  netlifyContext: process.env.CONTEXT || null,
   tagMap: {
     voyagers: ['vonage-voyagers'],
     careers: ['career'],
@@ -71,10 +96,12 @@ const config = {
         content: 'summary_large_image',
       },
       { hid: 'twitter:site', name: 'twitter:site', content: '@VonageDev' },
+      // https://learn.vonage.com
       { hid: 'twitter:url', name: 'twitter:url', content: this.baseUrl },
       {
         hid: 'twitter:title',
         name: 'twitter:title',
+        // Posts, Tutorials, and Streams » Developer Content from Vonage ♥
         content: `${this.indexTitle}${this.baseSplitter}${this.baseTitle}`,
       },
       {
@@ -85,7 +112,8 @@ const config = {
       {
         hid: 'twitter:image',
         name: 'twitter:image',
-        content: `${this.baseUrl}/images/generic-social-card.png`,
+        // https://learn.vonage.com/images/Vonage-learn.png
+        content: `${this.baseUrl}/images/Vonage-learn.png`,
       },
       {
         hid: 'twitter:image:width',
@@ -95,17 +123,18 @@ const config = {
       {
         hid: 'twitter:image:height',
         name: 'twitter:image:height',
-        content: '600',
+        content: '420',
       },
       {
         hid: 'twitter:image:alt',
         name: 'twitter:image:alt',
+        // Posts, Tutorials, and Streams » Developer Content from Vonage ♥
         content: `${this.indexTitle}${this.baseSplitter}${this.baseTitle}`,
       },
-      { hid: 'og:url', property: 'og:url', content: this.baseUrl },
       {
         hid: 'og:title',
         property: 'og:title',
+        // Posts, Tutorials, and Streams » Developer Content from Vonage ♥
         content: `${this.indexTitle}${this.baseSplitter}${this.baseTitle}`,
       },
       {
@@ -116,7 +145,8 @@ const config = {
       {
         hid: 'og:image',
         property: 'og:image',
-        content: `${this.baseUrl}/images/generic-social-card.png`,
+        // https://learn.vonage.com/images/Vonage-learn.png
+        content: `${this.baseUrl}/images/Vonage-learn.png`,
       },
       {
         hid: 'og:image:width',
@@ -126,11 +156,12 @@ const config = {
       {
         hid: 'og:image:height',
         name: 'og:image:height',
-        content: '600',
+        content: '420',
       },
       {
         hid: 'og:image:alt',
         name: 'og:image:alt',
+        // Posts, Tutorials, and Streams » Developer Content from Vonage ♥
         content: `${this.indexTitle}${this.baseSplitter}${this.baseTitle}`,
       },
       {
@@ -151,7 +182,8 @@ const config = {
       {
         hid: 'og:site_name',
         property: 'og:site_name',
-        content: `${this.indexTitle}${this.baseSplitter}${this.baseBrand}`,
+        // Vonage
+        content: `${this.baseBrand}`,
       },
       { hid: 'og:type', property: 'og:type', content: 'website' },
     ]
