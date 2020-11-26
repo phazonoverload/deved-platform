@@ -9,7 +9,7 @@
         <img
           v-if="!author.image_url"
           class="object-cover w-full h-64"
-          src="~/assets/images/placeholder.gif"
+          src="/content/images/placeholder.svg"
           property="image"
           :alt="`Profile pic of ${author.name}`"
         />
@@ -17,7 +17,7 @@
           v-else-if="author.image_url.startsWith('/')"
           :src="author.image_url"
           property="image"
-          placeholder="true"
+          placeholder="/content/images/placeholder.svg"
           class="object-cover w-full h-64"
           :alt="`Profile pic of ${author.name}`"
         />
@@ -47,7 +47,7 @@
       </small>
       <small v-else property="jobTitle"> Guest Writer </small>
     </header>
-    <main class="px-4 sm:flex-row sm:space-x-1">
+    <main class="px-4 pb-4 sm:flex-row sm:space-x-1">
       <p class="text-sm text-justify text-grey-dark" property="description">
         {{ author.bio | truncate(100, '...') }}
       </p>
@@ -57,20 +57,6 @@
         >
       </p>
     </main>
-    <footer class="py-2 mx-4 mt-2 border-t">
-      <twitter-social-button
-        :link="author.twitter ? `https://twitter.com/${author.twitter}` : ''"
-      />
-      <facebook-social-button :link="author.facebook_url" />
-      <github-social-button :link="author.github_url" />
-      <stackoverflow-social-button :link="author.stackoverflow_url" />
-      <linkedin-social-button :link="author.linkedin_url" />
-      <twitch-social-button :link="author.twitch_url" />
-      <youtube-social-button :link="author.youtube_url" />
-      <website-social-button
-        :link="author.website_url || localePath(`/authors/${author.username}`)"
-      />
-    </footer>
   </div>
 </template>
 
