@@ -1,7 +1,7 @@
 <template>
-  <div class="grid gap-4 grid-cols-5 mt-10">
-    <div class="col-span-1 pr-8">
-      <img :src="module.icon" :alt="module.title" />
+  <div class="grid grid-cols-1 md:gap-4 md:grid-cols-5 mt-10">
+    <div class="col-span-1 pb-4 md:pb-0 md:pr-8">
+      <img :src="module.icon" :alt="module.title" class="w-24 md:w-auto" />
     </div>
     <div class="col-span-4">
       <h3 class="text-2xl font-bold">{{ module.title }}</h3>
@@ -32,7 +32,7 @@
         </li>
       </ul>
       <NuxtLink
-        class="button button--pill button--primary"
+        class="button button--pill button--primary mt-2"
         :to="`/courses/${module.course}/${module.slug}`"
         >Go to class</NuxtLink
       >

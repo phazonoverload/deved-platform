@@ -2,7 +2,7 @@
   <main class="max-w-screen-xl px-6 mx-auto lg:px-8">
     <Breadcrumbs />
     <section
-      class="grid grid-cols-1 gap-y-6 md:gap-6 md:grid-cols-4 xl:grid-cols-5"
+      class="flex flex-col-reverse xl:grid gap-y-6 xl:gap-6 xl:grid-cols-4 xl:grid-cols-5"
     >
       <aside class="static col-span-1 row-span-2">
         <Author :author="course.author" type="card" />
@@ -49,58 +49,6 @@
       </article>
     </section>
   </main>
-
-  <!-- <div class="Course Course__landing Vlt-container">
-    <div class="Vlt-grid Vlt-grid--stack-flush">
-      <div class="Vlt-col" />
-      <div class="Vlt-col Vlt-col--2of3">
-        <Breadcrumbs />
-        <div class="Vlt-card" property="mainEntityOfPage">
-          <div v-if="course.thumbnail" class="Vlt-card__header">
-            <img
-              property="image"
-              :src="course.thumbnail"
-              :alt="course.title"
-              width="100%"
-            />
-          </div>
-          <div class="Vlt-card__header Vlt-margin--A-top3">
-            <h1 property="headline">
-              {{ course.title }}
-            </h1>
-            <h2 class="summary">{{ course.summary }}</h2>
-            <small
-              >{{ classes.length }} Classes &bull;
-              {{ chapters.length }} Chapters &bull; {{ runTime }} Total</small
-            >
-          </div>
-          <hr class="hr--short Vlt-gradient--blue-to-pink Vlt-margin--A-top3" />
-          <div
-            class="Vlt-card__content Vlt-margin--A-top3"
-            property="articleBody"
-          >
-            <nuxt-content :document="course" />
-          </div>
-          <div class="listing Vlt-margin--A-top3">
-            <h2>Through {{ classes.length }} classes you will cover...</h2>
-            <Module
-              v-for="module in classes"
-              :key="module.path"
-              :module="module"
-            />
-          </div>
-        </div>
-      </div>
-      <div class="Vlt-col" />
-    </div>
-    <div class="Vlt-grid Vlt-grid--stack-flush">
-      <div class="Vlt-col" />
-      <div class="Vlt-col Vlt-col--2of3">
-        <Author :author="course.instructor" type="card" />
-      </div>
-      <div class="Vlt-col" />
-    </div>
-  </div> -->
 </template>
 
 <script>
