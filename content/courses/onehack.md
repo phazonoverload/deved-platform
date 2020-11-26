@@ -29,3 +29,5 @@ This course will not make you good at any single topic. Instead, you will gain '
 ## Who this is for
 
 This course is perfect for everyone - from people who have never written any code before right through to experienced developers looking to refresh and strengthen their core web development skills.
+
+## Through 6 classes you will cover...

@@ -1,40 +1,54 @@
 <template>
-  <div class="Course Class Vlt-container">
-    <div class="Vlt-grid Vlt-grid--stack-flush">
-      <div class="Vlt-col" />
-      <div class="Vlt-col Vlt-col--2of3">
-        <Breadcrumbs />
-        <div class="Vlt-card" property="mainEntityOfPage">
-          <div class="Vlt-card__header">
-            <h1 property="headline">{{ singleClass.title }}</h1>
-          </div>
-          <hr class="hr--short Vlt-gradient--blue-to-pink Vlt-margin--A-top2" />
-          <div
-            class="Vlt-card__content Vlt-margin--A-top3"
-            property="articleBody"
-          >
-            <p class="summary">
-              <b>{{ singleClass.description }}</b>
-            </p>
-            <Video :id="singleClass.youtube" />
-            <small
-              >{{ chapters.length }} Chapters &bull; {{ runTime }} Minutes
-              Total</small
-            >
-            <Listing :links="chapters" />
-          </div>
+  <main class="max-w-screen-xl px-6 mx-auto lg:px-8">
+    <Breadcrumbs />
+    <section
+      class="flex flex-col-reverse xl:grid gap-y-6 xl:gap-6 xl:grid-cols-5"
+    >
+      <aside class="static col-span-1 row-span-2">
+        <div class="overflow-hidden bg-white rounded-lg shadow-lg">
+          <figure class="overflow-hidden rounded-t-lg">
+            <div class="card-figure">
+              <nuxt-image
+                placeholder="true"
+                property="image"
+                :src="course.thumbnail"
+                :alt="course.title"
+              />
+            </div>
+          </figure>
+          <header class="px-4 my-4">
+            <h3 property="name" class="flex text-lg font-medium">
+              <nuxt-link :to="course.path">
+                {{ course.title }}
+              </nuxt-link>
+            </h3>
+            <p class="mt-2">{{ course.summary }}</p>
+          </header>
+          <main>
+            <Listing :links="classes" />
+          </main>
         </div>
-      </div>
-      <div class="Vlt-col" />
-    </div>
-    <div class="Vlt-grid Vlt-grid--stack-flush">
-      <div class="Vlt-col" />
-      <div class="Vlt-col Vlt-col--2of3">
-        <prev-next :prev="prev" :next="next" end="End of course 🎉" />
-      </div>
-      <div class="Vlt-col" />
-    </div>
-  </div>
+      </aside>
+
+      <article class="col-span-4 flex-1 bg-white shadow-xl rounded-xl">
+        <header class="p-4 md:p-6 border-gray-200 border-b-2">
+          <h2 property="headline" class="text-3xl font-medium">
+            {{ singleClass.title }}
+          </h2>
+          <p class="text-lg my-2">{{ singleClass.description }}</p>
+          <div class="meta">
+            <p>
+              {{ chapters.length }} Chapters &bull; {{ runTime }} Minutes Total
+            </p>
+          </div>
+        </header>
+        <main class="p-4 md:p-6">
+          <Youtube :id="singleClass.youtube" />
+          <Listing :links="chapters" />
+        </main>
+      </article>
+    </section>
+  </main>
 </template>
 
 <script>
@@ -53,6 +67,22 @@ export default {
         .catch((err) =>
           error({ statusCode: 404, message: 'Page not found', err })
         )
+
+      let classes = await $content(`courses/classes`)
+        .where({ course: { $eq: params.course } })
+        .sortBy('order', 'asc')
+        .fetch()
+
+      classes = classes.map((c) => {
+        return {
+          ...c,
+          url: `/courses/${course.slug}/${c.slug}`,
+          text: {
+            main: c.title,
+          },
+          highlight: c.slug == singleClass.slug,
+        }
+      })
 
       let chapters = await $content(`courses/classes/chapters`)
         .where({ class: { $eq: params.class } })
@@ -96,6 +126,7 @@ export default {
         singleClass,
         runTime,
         chapters,
+        classes,
         prev,
         next,
         baseUrl: config.baseUrl,
@@ -180,20 +211,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-.Vlt-card__header {
-  padding-bottom: 0;
-}
-.summary {
-  font-size: 1.25em;
-  margin-bottom: 1.25em;
-}
-.video {
-  margin-bottom: 1.5rem;
-}
-small {
-  margin-bottom: 0.5rem;
-  display: block;
-}
-</style>

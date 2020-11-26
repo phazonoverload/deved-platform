@@ -31,10 +31,10 @@
           <span class="Vlt-list-item__text">{{ lo }}</span>
         </li>
       </ul>
-      <NuxtLink
+      <nuxt-link
         class="button button--pill button--primary mt-2"
         :to="`/courses/${module.course}/${module.slug}`"
-        >Go to class</NuxtLink
+        >Go to class</nuxt-link
       >
     </div>
   </div>

@@ -1,14 +1,32 @@
 <template>
-  <ol>
-    <li v-for="(link, i) in links" :key="i">
-      <a :href="link.url">
-        <span
-          ><b>{{ link.text.main }}</b></span
+  <div
+    class="bg-white shadow overflow-hidden sm:rounded-md border-gray-100 border-2"
+  >
+    <ul class="divide-y divide-gray-200">
+      <li v-for="link in links" :key="link.url">
+        <nuxt-link
+          :to="link.url"
+          class="block"
+          :class="{ 'text-indigo': link.highlight }"
         >
-        <span v-if="link.text.secondary">{{ link.text.secondary }}</span>
-      </a>
-    </li>
-  </ol>
+          <div class="px-4 py-4 sm:px-6">
+            <div class="flex items-center justify-between">
+              <p class="text-sm truncate">
+                {{ link.text.main }}
+              </p>
+              <div class="ml-2 flex-shrink-0 flex" vif="link.secondary">
+                <p
+                  class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800"
+                >
+                  {{ link.text.secondary }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </nuxt-link>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -21,22 +39,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-ol {
-  border: 1px solid lightgrey;
-  border-radius: 6px;
-}
-li + li {
-  border-top: 1px solid lightgrey;
-}
-li a {
-  display: block;
-  padding: 1em;
-  color: #131415 !important;
-  text-decoration: none !important;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-</style>

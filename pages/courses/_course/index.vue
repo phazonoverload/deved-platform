@@ -2,7 +2,7 @@
   <main class="max-w-screen-xl px-6 mx-auto lg:px-8">
     <Breadcrumbs />
     <section
-      class="flex flex-col-reverse xl:grid gap-y-6 xl:gap-6 xl:grid-cols-4 xl:grid-cols-5"
+      class="flex flex-col-reverse xl:grid gap-y-6 xl:gap-6 xl:grid-cols-5"
     >
       <aside class="static col-span-1 row-span-2">
         <Author :author="course.author" type="card" />
@@ -18,7 +18,7 @@
             />
           </div>
         </figure>
-        <header class="p-4 md:p-6 border border-gray-200 border-b-2">
+        <header class="p-4 md:p-6 border-gray-200 border-b-2">
           <h2 property="headline" class="text-3xl font-medium">
             {{ course.title }}
           </h2>
@@ -36,9 +36,6 @@
             class="mx-auto prose-sm prose sm:prose lg:prose-lg"
           />
           <div class="listing">
-            <h2 class="text-3xl mt-16 font-bold">
-              Through {{ classes.length }} classes you will cover...
-            </h2>
             <Module
               v-for="module in classes"
               :key="module.path"
