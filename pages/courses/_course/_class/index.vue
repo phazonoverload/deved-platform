@@ -80,7 +80,7 @@ export default {
           text: {
             main: c.title,
           },
-          highlight: c.slug == singleClass.slug,
+          highlight: c.slug === singleClass.slug,
         }
       })
 

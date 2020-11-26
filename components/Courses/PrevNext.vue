@@ -10,7 +10,7 @@
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
-          class="stroke-current stroke-2 icon-size mr-2"
+          class="stroke-current stroke-1 icon-size mr-2"
         >
           <path
             stroke-linecap="round"
@@ -36,7 +36,7 @@
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
-          class="stroke-current stroke-2 icon-size ml-2"
+          class="stroke-current stroke-1 icon-size ml-2"
         >
           <path
             stroke-linecap="round"
