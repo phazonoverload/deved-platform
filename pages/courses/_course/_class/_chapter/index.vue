@@ -58,39 +58,6 @@
       </article>
     </section>
   </main>
-
-  <!-- <div class="Course Chapter Vlt-container">
-    <div class="Vlt-grid Vlt-grid--stack-flush">
-      <div class="Vlt-col"></div>
-      <div class="Vlt-col Vlt-col--2of3">
-        <Breadcrumbs />
-        <div class="Vlt-card" property="mainEntityOfPage">
-          <div class="Vlt-card__header">
-            <h1 property="headline">{{ chapter.title }}</h1>
-          </div>
-          <hr class="hr--short Vlt-gradient--blue-to-pink Vlt-margin--A-top2" />
-          <div
-            class="Vlt-card__content Vlt-margin--A-top3"
-            property="articleBody"
-          >
-            <Video :id="chapter.youtube" />
-            <nuxt-content :document="chapter" />
-            <div v-if="course.support" class="help">
-              <p v-html="course.support"></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="Vlt-col"></div>
-    </div>
-    <div class="Vlt-grid Vlt-grid--stack-flush">
-      <div class="Vlt-col" />
-      <div class="Vlt-col Vlt-col--2of3">
-        <prev-next :prev="prev" :next="next" end="End of class 🎉" />
-      </div>
-      <div class="Vlt-col" />
-    </div>
-  </div> -->
 </template>
 
 <script>
