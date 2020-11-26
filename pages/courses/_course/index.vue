@@ -1,5 +1,56 @@
 <template>
-  <div class="Course Course__landing Vlt-container">
+  <main class="max-w-screen-xl px-6 mx-auto lg:px-8">
+    <Breadcrumbs />
+    <section
+      class="grid grid-cols-1 gap-y-6 md:gap-6 md:grid-cols-4 xl:grid-cols-5"
+    >
+      <aside class="static col-span-1 row-span-2">
+        <Author :author="course.author" type="card" />
+      </aside>
+      <article class="col-span-4 flex-1 bg-white shadow-xl rounded-xl">
+        <figure class="overflow-hidden rounded-t-lg">
+          <div class="card-figure">
+            <nuxt-image
+              placeholder="true"
+              property="image"
+              :src="course.thumbnail"
+              :alt="course.title"
+            />
+          </div>
+        </figure>
+        <header class="p-4 md:p-6 border border-gray-200 border-b-2">
+          <h2 property="headline" class="text-3xl font-medium">
+            {{ course.title }}
+          </h2>
+          <p class="text-lg my-2">{{ course.summary }}</p>
+          <div class="meta">
+            <p>
+              {{ classes.length }} Classes &bull; {{ chapters.length }} Chapters
+              &bull; {{ runTime }} Total
+            </p>
+          </div>
+        </header>
+        <main class="p-4 md:p-6">
+          <nuxt-content
+            :document="course"
+            class="mx-auto prose-sm prose sm:prose lg:prose-lg"
+          />
+          <div class="listing">
+            <h2 class="text-3xl mt-16 font-bold">
+              Through {{ classes.length }} classes you will cover...
+            </h2>
+            <Module
+              v-for="module in classes"
+              :key="module.path"
+              :module="module"
+            />
+          </div>
+        </main>
+      </article>
+    </section>
+  </main>
+
+  <!-- <div class="Course Course__landing Vlt-container">
     <div class="Vlt-grid Vlt-grid--stack-flush">
       <div class="Vlt-col" />
       <div class="Vlt-col Vlt-col--2of3">
@@ -49,7 +100,7 @@
       </div>
       <div class="Vlt-col" />
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script>
@@ -166,18 +217,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-.Vlt-card__header img {
-  border-radius: 6px;
-}
-.summary {
-  margin: 1rem 0 !important;
-}
-</style>
-
-<style>
-.Author-col {
-  padding: 0;
-}
-</style>

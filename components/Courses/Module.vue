@@ -1,18 +1,18 @@
 <template>
-  <div class="Module">
-    <div class="icon">
+  <div class="grid gap-4 grid-cols-5 mt-10">
+    <div class="col-span-1 pr-8">
       <img :src="module.icon" :alt="module.title" />
     </div>
-    <div class="content">
-      <h3>{{ module.title }}</h3>
-      <p class="desc">{{ module.description }}</p>
+    <div class="col-span-4">
+      <h3 class="text-2xl font-bold">{{ module.title }}</h3>
+      <p class="text-lg">{{ module.description }}</p>
       <ul>
         <li
           v-for="(lo, i) in module.key_learnings"
           :key="i"
-          class="Vlt-list-item"
+          class="flex items-center my-2"
         >
-          <span class="Vlt-list-item__icon">
+          <span class="mr-2 text-aqua">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -32,7 +32,7 @@
         </li>
       </ul>
       <NuxtLink
-        class="Vlt-btn Vlt-btn--primary"
+        class="button button--pill button--primary"
         :to="`/courses/${module.course}/${module.slug}`"
         >Go to class</NuxtLink
       >
@@ -50,31 +50,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-.Module {
-  display: grid;
-  grid-template-columns: 100px auto;
-  gap: 3em;
-  margin-top: 2em;
-}
-img {
-  margin-top: 0.25em;
-}
-.desc {
-  font-size: 1.25em;
-  margin-bottom: 1em;
-}
-ul {
-  margin-bottom: 1em;
-}
-@media only screen and (max-width: 515px) {
-  .Module {
-    grid-template-columns: 1fr;
-    gap: 1em;
-  }
-  img {
-    width: 100px;
-  }
-}
-</style>
