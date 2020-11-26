@@ -8,7 +8,7 @@
       <nuxt-link :to="localePath(`/authors/${author.username}`)">
         <img
           v-if="!author.image_url"
-          class="object-cover w-full h-64"
+          class="object-cover w-full"
           src="/content/images/placeholder.svg"
           property="image"
           :alt="`Profile pic of ${author.name}`"
@@ -18,14 +18,14 @@
           :src="author.image_url"
           property="image"
           placeholder="/content/images/placeholder.svg"
-          class="object-cover w-full h-64"
+          class="object-cover w-full"
           :alt="`Profile pic of ${author.name}`"
         />
         <img
           v-else
           :src="author.image_url"
           property="image"
-          class="object-cover w-full h-64"
+          class="object-cover w-full"
           :alt="`Profile pic of ${author.name}`"
         />
       </nuxt-link>
