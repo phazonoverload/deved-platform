@@ -48,9 +48,7 @@
         </small>
         <small v-else property="jobTitle"> Guest Writer </small>
       </header>
-      <main
-        class="px-4 pb-4 sm:flex-row sm:space-x-1 hidden sm:block hidden sm:block"
-      >
+      <main class="px-4 pb-4 sm:flex-row sm:space-x-1">
         <p class="text-sm text-justify text-grey-dark" property="description">
           {{ author.bio | truncate(100, '...') }}
         </p>
