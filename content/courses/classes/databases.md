@@ -1,11 +1,11 @@
 ---
 course: "onehack"
 title: "Databases"
-description: "Lorem Ipsum Databases Description"
+description: "Learn core database concepts, and store data independent from your applications"
 key_learnings:
   - Database Concepts
   - CRUD with NeDB
-  - Using Airtable
+  - Saving SMS Messages
 youtube: "PzboFBOeazM"
 icon: /content/courses/onehack/databases.png
 order: 5
