@@ -38,29 +38,8 @@
       </aside>
 
       <article class="col-span-4 flex-1 bg-white shadow-xl rounded-xl">
-        <header class="p-4 md:p-6 border-gray-200 border-b-2">
-          <h2 property="headline" class="text-3xl font-medium">
-            {{ chapter.title }}
-          </h2>
-          <p class="text-lg my-2">{{ singleClass.description }}</p>
-        </header>
         <main class="p-4 md:p-6">
-          <Youtube :id="chapter.youtube" />
-          <nuxt-content
-            :document="chapter"
-            class="mx-auto prose-sm prose sm:prose lg:prose-lg"
-          />
-          <p
-            v-if="course.support"
-            class="prose mt-6"
-            v-html="course.support"
-          ></p>
-          <prev-next
-            class="mt-12"
-            :prev="prev"
-            :next="next"
-            end="End of class 🎉"
-          />
+          <Glossary :terms="course.glossary" />
         </main>
       </article>
     </section>
@@ -72,36 +51,11 @@ import config from '~/modules/config'
 export default {
   async asyncData({ $content, params, error }) {
     try {
-      const chapter = await $content(
-        `courses/classes/chapters/${params.chapter}`
-      )
+      const course = await $content(`courses/${params.course}`)
         .fetch()
         .catch((err) =>
           error({ statusCode: 404, message: 'Page not found', err })
         )
-
-      const surroundingChapters = await $content('courses/classes/chapters')
-        .where({ class: { $eq: params.class } })
-        .sortBy('order', 'asc')
-        .surround(params.chapter)
-        .fetch()
-
-      const [prev, next] = surroundingChapters.map((c) => {
-        if (c) {
-          return {
-            ...c,
-            slug: `/courses/${params.course}/${c.class}/${c.slug}`,
-          }
-        } else {
-          return c
-        }
-      })
-
-      const singleClass = await $content(
-        `courses/classes/${params.class}`
-      ).fetch()
-
-      const course = await $content(`courses/${params.course}`).fetch()
 
       let classes = await $content(`courses/classes`)
         .where({ course: { $eq: params.course } })
@@ -115,16 +69,11 @@ export default {
           text: {
             main: c.title,
           },
-          highlight: c.slug === singleClass.slug,
         }
       })
 
       return {
         course,
-        singleClass,
-        chapter,
-        prev,
-        next,
         classes,
         baseUrl: config.baseUrl,
       }
@@ -135,7 +84,7 @@ export default {
   },
   head() {
     return {
-      title: `${this.chapter.title}${config.baseSplitter}${this.singleClass.title}${config.baseSplitter}${this.course.title}`,
+      title: `${this.course.title} Glossary`,
       meta: [
         {
           hid: 'keywords',

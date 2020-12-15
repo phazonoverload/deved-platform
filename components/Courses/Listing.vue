@@ -1,6 +1,7 @@
 <template>
   <div
-    class="bg-white overflow-hidden sm:rounded-md border-gray-100 border-2"
+    class="bg-white overflow-hidden sm:rounded-md border-gray-100"
+    :class="{ 'border-2': border, 'border-0': !border }"
   >
     <ul class="divide-y divide-gray-200">
       <li v-for="link in links" :key="link.url">
@@ -35,6 +36,11 @@ export default {
     links: {
       type: Array,
       required: true,
+    },
+    border: {
+      type: Boolean,
+      required: false,
+      default: true,
     },
   },
 }

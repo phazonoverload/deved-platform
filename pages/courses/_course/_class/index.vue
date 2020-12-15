@@ -25,7 +25,14 @@
             <p class="mt-2">{{ course.summary }}</p>
           </header>
           <main>
-            <Listing :links="classes" />
+            <Listing :links="classes" :border="false" />
+            <div v-if="course.glossary" class="glossary m-2 text-center">
+              <nuxt-link
+                :to="`/courses/${course.slug}/glossary`"
+                class="block w-full bg-black p-2 text-white text-sm rounded"
+                >Glossary</nuxt-link
+              >
+            </div>
           </main>
         </div>
       </aside>
@@ -43,7 +50,7 @@
           </div>
         </header>
         <main class="p-4 md:p-6">
-          <Youtube :id="singleClass.youtube" v-if="singleClass.youtube" />
+          <Youtube v-if="singleClass.youtube" :id="singleClass.youtube" />
           <Listing :links="chapters" />
         </main>
       </article>
