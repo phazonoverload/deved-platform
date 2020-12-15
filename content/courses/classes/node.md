@@ -8,7 +8,6 @@ key_learnings:
   - Templating Languages
   - Making API Calls
   - Creating Data with Forms
-youtube: "PzboFBOeazM"
 icon: /content/courses/onehack/nodejs.png
 order: 3
 ---

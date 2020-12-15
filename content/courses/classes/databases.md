@@ -6,7 +6,6 @@ key_learnings:
   - Database Concepts
   - CRUD with NeDB
   - Saving SMS Messages
-youtube: "PzboFBOeazM"
 icon: /content/courses/onehack/databases.png
 order: 5
 ---

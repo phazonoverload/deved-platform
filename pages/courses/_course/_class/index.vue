@@ -43,7 +43,7 @@
           </div>
         </header>
         <main class="p-4 md:p-6">
-          <Youtube :id="singleClass.youtube" />
+          <Youtube :id="singleClass.youtube" v-if="singleClass.youtube" />
           <Listing :links="chapters" />
         </main>
       </article>

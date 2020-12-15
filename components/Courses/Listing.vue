@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-white shadow overflow-hidden sm:rounded-md border-gray-100 border-2"
+    class="bg-white overflow-hidden sm:rounded-md border-gray-100 border-2"
   >
     <ul class="divide-y divide-gray-200">
       <li v-for="link in links" :key="link.url">

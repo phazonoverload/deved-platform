@@ -1,7 +1,7 @@
 ---
 class: 'databases'
 title: 'Class 5 Summary'
-youtube: 'PzboFBOeazM'
+youtube: 'Sk40vWFh5xA'
 order: 12
-length: 61
+length: 43
 ---

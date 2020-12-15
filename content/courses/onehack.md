@@ -1,6 +1,8 @@
 ---
 title: "OneHack Academy"
 thumbnail: /content/courses/onehack/header.png
+show_thumbnail: false
+youtube: a6C2axKJi1A
 summary: Learn to Code from Scratch with JavaScript
 support: 'Need help? Have questions? <a href="https://developer.nexmo.com/slack">Join the Vonage Developer Community Slack</a> and use the channel #onehack.'
 author: kevinlewis
@@ -20,6 +22,7 @@ keywords:
   - node
   - database
 ---
+
 OneHack Academy is Vonage's internal 'learn to code' course, and we are making it available to everyone. Through 6 classes you'll learn how to design and build web pages, how to write JavaScript, store data, and use several Vonage APIs.
 
 It is designed to be a useful piece of reference material that you can keep coming back to, as most videos cover a single topic and are 10 minutes or less.

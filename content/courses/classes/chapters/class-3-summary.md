@@ -1,7 +1,7 @@
 ---
 class: 'node'
 title: 'Class 3 Summary'
-youtube: 'PzboFBOeazM'
+youtube: 'gBvGQBjahxQ'
 order: 16
-length: 30
+length: 50
 ---

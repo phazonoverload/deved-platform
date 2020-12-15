@@ -8,7 +8,7 @@
         <Author :author="course.author" type="card" />
       </aside>
       <article class="col-span-4 flex-1 bg-white shadow-xl rounded-xl">
-        <figure class="overflow-hidden rounded-t-lg">
+        <figure class="overflow-hidden rounded-t-lg" v-if="course.show_thumbnail">
           <div class="card-figure">
             <nuxt-image
               placeholder="true"
@@ -31,6 +31,7 @@
           </div>
         </header>
         <main class="p-4 md:p-6">
+          <Youtube :id="course.youtube" v-if="course.youtube" />
           <nuxt-content
             :document="course"
             class="mx-auto prose-sm prose sm:prose lg:prose-lg"

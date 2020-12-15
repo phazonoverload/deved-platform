@@ -8,7 +8,6 @@ key_learnings:
   - Making & Receiving Calls
   - Making & Receiving SMS Messages
   - Sending SMS Messages from Web Forms
-youtube: "PzboFBOeazM"
 icon: /content/courses/onehack/vonage.png
 order: 4
 ---
